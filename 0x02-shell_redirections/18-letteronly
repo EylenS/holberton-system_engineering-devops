@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -i ^[Mm] /etc/ssh/sshd_config
+grep '^[^#]' '^L' /etc/ssh/sshd_config
