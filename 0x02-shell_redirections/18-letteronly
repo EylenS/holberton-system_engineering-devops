@@ -1,2 +1,2 @@
 #!/bin/bash
-grep '^[Cc]' /etc/ssh/sshd_config
+grep -i ^[Mm] /etc/ssh/sshd_config
