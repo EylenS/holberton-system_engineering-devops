@@ -1,2 +1,2 @@
 #!/bin/bash
-find * | grep directory | wc -l
+file $PATH* | grep directory | wc -l
