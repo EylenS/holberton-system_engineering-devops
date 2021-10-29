@@ -4,7 +4,7 @@
 h=0
 while [ $h -le 12 ]
 do
-    echo "Hour $h"
+    echo "Hour: $h"
     # m: mnutes from 1 to 59
     m=1
     while [ $m -le 59 ]
