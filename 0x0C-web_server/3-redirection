@@ -6,5 +6,5 @@ sudo service nginx start
 echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
 new_string="location /redirect_me {\n  return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}\n\n"
 sudo sed -i "26i $new_string" /etc//nginx/sites-available/default
-sudo nginx -t
+sudo service nginx restart
 sudo service nginx reload
