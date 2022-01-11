@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script allows configure web-02 to be identical to web-01
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+sudo chmod 777 /etc/haproxy/haproxy.cfg
+echo -e "frontend http_front\n   bind *:80\n   stats uri /haproxy?stats\n   default_backend http_back\n\nbackend http_back\n   balance roundrobin\n   server 3359-web-01 34.138.250.25:80 check\n   server 3359-web-02 50.17.152.241:80 check" >> /etc/haproxy/haproxy.cfg
+sudo systemctl restart haproxy
