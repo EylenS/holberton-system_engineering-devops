@@ -3,5 +3,13 @@
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo chmod 777 /etc/haproxy/haproxy.cfg
-echo -e "frontend http_front\n   bind *:80\n   stats uri /haproxy?stats\n   default_backend http_back\n\nbackend http_back\n   balance roundrobin\n   server 3359-web-01 34.138.250.25:80 check\n   server 3359-web-02 50.17.152.241:80 check" >> /etc/haproxy/haproxy.cfg
+echo -e "frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+backend http_back
+   balance roundrobin
+   server 3359-web-01 34.138.250.25:80 check
+   server 3359-web-02 50.17.152.241:80 check check" | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo systemctl restart haproxy
