@@ -11,5 +11,5 @@ echo "frontend http_front
 backend http_back
    balance roundrobin
    server 3359-web-01 34.138.250.25:80 check
-   server 3359-web-02 50.17.152.241:80 check check" | sudo tee --append /etc/haproxy/haproxy.cfg
-sudo systemctl restart haproxy
+   server 3359-web-02 50.17.152.241:80 check" | sudo tee --append /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
