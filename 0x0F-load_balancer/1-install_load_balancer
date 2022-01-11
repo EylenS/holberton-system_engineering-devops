@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script allows configure web-02 to be identical to web-01
 sudo apt-get -y update
-sudo apt-get -y install haproxy
+sudo apt-get -y install haproxy=1.6.\*
 sudo chmod 777 /etc/haproxy/haproxy.cfg
 echo "frontend http_front
    bind *:80
