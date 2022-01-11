@@ -3,7 +3,7 @@
 sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo chmod 777 /etc/haproxy/haproxy.cfg
-echo -e "frontend http_front
+echo "frontend http_front
    bind *:80
    stats uri /haproxy?stats
    default_backend http_back
