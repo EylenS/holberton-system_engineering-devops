@@ -2,5 +2,5 @@
 # find out what’s keeping Ubuntu container’s Nginx installation from port 80
 apt-get -y update
 apt-get -y install nginx
-ufw allow 'Nginx HTTP'
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx start
