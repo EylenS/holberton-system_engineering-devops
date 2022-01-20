@@ -49,8 +49,8 @@ frontend https_front
 backend http_back
    redirect scheme https if !{ ssl_fc }
    balance roundrobin
-   server 3359-web-01 34.138.250.25:80 check maxconn 20 ssl ca-file /etc/ssl/certs/web-01.ca.pem
-   server 3359-web-02 50.17.152.241:80 check maxconn 20 ssl ca-file /etc/ssl/certs/web-02.ca.pem
+   server 3359-web-01 34.138.250.25:80 check
+   server 3359-web-02 50.17.152.241:80 check
 
 backend letsencrypt-backend
    server letsencrypt 127.0.0.1:54321
