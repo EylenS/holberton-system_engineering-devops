@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     # Info about employee according to the id passed
     dictUser = requests.get(URL_name + u_id).json()
-    employeeName = dictUser.get('name')
+    username = dictUser.get('username')
 
     # List of dicts, info about tasks: userId, title, completed
     dictTodos = requests.get(URL_todos + u_id).json()
@@ -25,11 +25,11 @@ if __name__ == '__main__':
 
     data = []
     for j in user_data:
-        data.append({'name': employeeName, 'id': u_id,
-                     'title': j['title'], 'completed': j['completed']})
+        data.append({'username': username, 'id': u_id,
+                     'completed': j['completed'], 'title': j['title']})
 
     # Writing to CSV files using the DictWriter class
-    fieldnames = ['id', 'name', 'completed', 'title']
+    fieldnames = ['id', 'username', 'completed', 'title']
 
     with open('{}.csv'.format(u_id), 'w', encoding='UTF8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames, quotechar='"',
