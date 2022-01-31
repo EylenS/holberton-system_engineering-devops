@@ -12,7 +12,6 @@ if __name__ == '__main__':
     dictTodos = requests.get(URL_todos + user_id).json()
     totalTasks = len(dictTodos)
     doneTasks = []
-    no_DoneTasks = 0
     for i in dictTodos:
         if i.get('completed') is True:
             doneTasks.append(i.get('title'))
@@ -20,4 +19,4 @@ if __name__ == '__main__':
     print('Employee {} is done with tasks({}/{}):'.
           format(dictUser.get('name'), no_DoneTasks, totalTasks))
     for task in doneTasks:
-        print('\t{}'.format(task))
+        print('     {}'.format(task))
