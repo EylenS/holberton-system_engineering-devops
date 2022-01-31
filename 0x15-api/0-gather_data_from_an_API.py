@@ -9,14 +9,15 @@ if __name__ == '__main__':
     URL_name = 'https://jsonplaceholder.typicode.com/users/'
     URL_todos = 'https://jsonplaceholder.typicode.com/todos?userId='
     dictUser = requests.get(URL_name + user_id).json()
+    employeeName = dictUser.get('name')
     dictTodos = requests.get(URL_todos + user_id).json()
     totalTasks = len(dictTodos)
     doneTasks = []
     for i in dictTodos:
         if i.get('completed') is True:
             doneTasks.append(i.get('title'))
-            no_DoneTasks = len(doneTasks)
+            nDoneTasks = len(doneTasks)
     print('Employee {} is done with tasks({}/{}):'.
-          format(dictUser.get('name'), no_DoneTasks, totalTasks))
+          format(employeeName, nDoneTasks, totalTasks))
     for task in doneTasks:
         print('     {}'.format(task))
