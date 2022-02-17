@@ -20,4 +20,4 @@ def top_ten(subreddit):
         for idx in range(10):
             print(path[idx]['data']['title'])
     except:
-        return 0
+        print("non-existent subreddit")
