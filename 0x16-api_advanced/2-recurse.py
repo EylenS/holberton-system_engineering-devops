@@ -16,7 +16,7 @@ def recurse(subreddit, hot_list=[], after=None):
     }
 
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, allow_redirects=False)
         res = response.json()
         path = res['data']['children']
         for idx in range(len(path)):
